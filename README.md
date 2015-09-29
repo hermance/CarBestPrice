@@ -1,7 +1,7 @@
 #CarSearching
 
 This is the JSON organisation for the car in Leboncoin
-
+```
 {
 	"title":"Cars from Leboncoin"
 	"type":"object",
@@ -54,12 +54,13 @@ This is the JSON organisation for the car in Leboncoin
 	"required" : ["prix","année","marque","modèle","adresse","kilometrage","carburant","boiteDeVitesse"]
 
 }
+```
 
 
 
 
 This is the JSON organisation for the car in Lacentrale
-
+```
 {
 	"title":"Cars from Lacentrale"
 	"type":"object",
@@ -107,7 +108,7 @@ This is the JSON organisation for the car in Lacentrale
 	"required" : ["categorie","marque","modèle","annee"]
 
 }
-
+```
 
 #User FLow :
 Here is what I imagine how the app will work : 
