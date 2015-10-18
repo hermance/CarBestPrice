@@ -1,0 +1,14 @@
+
+<h1>bonjour</h1>
+<p>l' url de l'offre du bon coin est : <%= url %></p>
+<p>Si par malheur rien ne s'affiche dans le tableau, actualisez la page, s'il vous plait.</p>
+<p>Marque de la voiture : <%= marque %><br/>
+Modèle : <%= modele %><br/>
+Année : <%= annee %></p>
+<br/>
+<form action="http://localhost:8080/search">
+  <input type="text" name="marque" value = "<%=marque%>"><br/>
+  <input type="text" name="modele" value = "<%=modele%>"><br/>
+  <input type="text" name="annee" value = "<%=annee%>"><br/>
+  <input type="submit" value="SEARCH IN LA CENTRALE">
+</form>
