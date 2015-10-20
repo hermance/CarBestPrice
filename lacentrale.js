@@ -4,6 +4,7 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 var app = express();
+//app.engine('.html', require('ejs').renderFile);
 app.get('/search', function(req, res){
  var myMarque = req.param('marque');
  var myModele = req.param('modele');
@@ -39,9 +40,9 @@ app.get('/search', function(req, res){
 							data = data.toString();
 							//console.log('data : ' + data);
 							myCote = data.substring(data.indexOf('Result_Cote arial tx20')+24,data.indexOf(' &#x20AC;</span>'));
-							//console.log(myCote);
+							//res.render('page3.ejs');
 							res.render('page2.ejs', {url :newURL, cote:myCote, marque : myMarque, modele : myModele, annee:myAnnee, prix : myPrix});
-							//res.send("OK");
+	
 						})
 					}
 					else{
@@ -56,6 +57,8 @@ app.get('/search', function(req, res){
 	else{
 		console.log("ERROR " + error);
 	}
+							
+	
 	})
 
 	//res.send('CHeck your console!');
