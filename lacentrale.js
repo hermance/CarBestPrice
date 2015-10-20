@@ -41,7 +41,7 @@ app.get('/search', function(req, res){
 							myCote = data.substring(data.indexOf('Result_Cote arial tx20')+24,data.indexOf(' &#x20AC;</span>'));
 							//console.log(myCote);
 							res.render('page2.ejs', {url :newURL, cote:myCote, marque : myMarque, modele : myModele, annee:myAnnee, prix : myPrix});
-							
+							//res.send("OK");
 						})
 					}
 					else{
