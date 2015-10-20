@@ -9,8 +9,9 @@ app.get('/scrape', function(req, res){
 	request(myURL, function(error, response, html){
 	if(!error){
 		var $ = cheerio.load(html);
-		var modele, marque,anneeModele;
-		var json ={modele : "", marque : "", anneeModele : ""};
+		var modele, marque,anneeModele; 
+		var price="";
+		var json ={modele : "", marque : "", anneeModele : "", prix :""};
 		
 		$('.lbcParams').filter(function(){
 
@@ -28,6 +29,21 @@ app.get('/scrape', function(req, res){
 				json.anneeModele = anneeModele;
 				//json.km = km;
             })
+		$('.price [itemprop="price"]').filter(function(){
+
+           // Let's store the data we filter into a variable so we can easily see what's going on.
+
+                var data = $(this);
+
+				//console.log('data : ' + data);
+           
+                price = data.attr("content");
+
+				console.log('price : ' + price);
+
+                json.prix = price;
+            })
+			
 		}
 	
 	fs.writeFile('output.json', JSON.stringify(json, null, 4), function(err){
@@ -37,7 +53,7 @@ app.get('/scrape', function(req, res){
 	})
 
 	//res.send('CHeck your console!');
-	res.render('page.ejs', {url :myURL, marque : marque, modele : modele, annee : anneeModele});
+	res.render('page.ejs', {url :myURL, marque : marque, modele : modele, annee : anneeModele, price : price});
 	//window.location.href = "http://localhost:8081/show.html";
    })
 

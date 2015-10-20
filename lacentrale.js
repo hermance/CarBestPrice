@@ -8,6 +8,7 @@ app.get('/search', function(req, res){
  var myMarque = req.param('marque');
  var myModele = req.param('modele');
  var myAnnee = req.param('annee');
+ var myPrix = req.param('price');
  var newData, newURL;
  //on a les parmas maintenant faut faire une belle URL de recherche lacentrale
  var myURL = "http://www.lacentrale.fr/cote-voitures-"+myMarque+"-"+myModele + "--"+myAnnee+"-.html";
@@ -39,7 +40,7 @@ app.get('/search', function(req, res){
 							//console.log('data : ' + data);
 							myCote = data.substring(data.indexOf('Result_Cote arial tx20')+24,data.indexOf(' &#x20AC;</span>'));
 							//console.log(myCote);
-							res.render('page2.ejs', {url :newURL, cote:myCote, marque : myMarque, modele : myModele, annee:myAnnee});
+							res.render('page2.ejs', {url :newURL, cote:myCote, marque : myMarque, modele : myModele, annee:myAnnee, prix : myPrix});
 							
 						})
 					}
